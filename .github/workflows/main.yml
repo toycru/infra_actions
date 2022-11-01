@@ -1,4 +1,3 @@
-# .github/workflows/**main.yml**
 name: Django-app workflow
 
 on: [push]
@@ -28,6 +27,8 @@ jobs:
         pip install -r requirements.txt 
 
     - name: Test with flake8 and django tests
-    # запуск проверки проекта по flake8
+    # запуск проверки проекта по flake8 и запустить написанные разработчиком тесты
       run: |
         python -m flake8
+        cd infra_project/ 
+        python manage.py test
